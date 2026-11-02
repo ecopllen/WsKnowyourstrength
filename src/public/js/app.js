@@ -277,7 +277,7 @@ const app = {
       btn.className = `option-btn ${selectedOption === opt.id ? 'selected' : ''}`;
       btn.onclick = () => this.selectOption(q.id, opt.id);
       btn.innerHTML = `
-        <div class="option-key">${opt.id}</div>
+        <div class="option-key">${opt.id.toUpperCase()}</div>
         <div style="flex-grow: 1;">${opt.text}</div>
       `;
       optContainer.appendChild(btn);
@@ -360,7 +360,60 @@ const app = {
     document.getElementById('res-secondary-role').innerText = `${sCat.role || ''} · ${sCat.roleVi || ''}`;
     document.getElementById('res-secondary-desc').innerText = sCat.description || '';
 
-    // Score bars
+    // Clarity Badge
+    const clarityBox = document.getElementById('res-clarity-badge-box');
+    if (clarityBox && data.clarity) {
+      let bg = '#eff6ff';
+      let color = '#1d4ed8';
+      let border = '#bfdbfe';
+      if (data.clarity.level === 'distinct') {
+        bg = '#f0fdf4';
+        color = '#15803d';
+        border = '#bbf7d0';
+      } else if (data.clarity.level === 'versatile') {
+        bg = '#fefce8';
+        color = '#a16207';
+        border = '#fef08a';
+      }
+      clarityBox.innerHTML = `
+        <div style="display: inline-block; background: ${bg}; color: ${color}; border: 1px solid ${border}; padding: 8px 20px; border-radius: 999px; font-weight: 700; font-size: 0.95rem; margin-bottom: 6px;">
+          ✨ Đánh giá xu hướng: ${data.clarity.label || 'Thế mạnh rõ nét'}
+        </div>
+        <p style="font-size: 0.88rem; color: var(--mute); margin: 6px auto 0; max-width: 580px;">
+          ${data.clarity.description || ''}
+        </p>
+      `;
+    }
+
+    // Tie resolution container (if tied and student can choose)
+    const tieContainer = document.getElementById('res-tie-container');
+    if (tieContainer) {
+      if (data.isPrimaryTied || data.isSecondaryTied) {
+        tieContainer.style.display = 'block';
+        const tiedOpts = data.isPrimaryTied ? data.tiedPrimaryOptions : data.tiedSecondaryOptions;
+        let optionsHtml = tiedOpts.map(opt => `
+          <label style="display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; font-weight: 600; cursor: pointer;">
+            <input type="radio" name="tie-choice" value="${opt}" ${opt === data.primaryStrength ? 'checked' : ''}>
+            <span>${opt}</span>
+          </label>
+        `).join('');
+
+        tieContainer.innerHTML = `
+          <h4 style="margin: 0 0 6px; color: #b45309;">⚖️ Điểm số các thế mạnh đang hòa nhau</h4>
+          <p style="font-size: 0.85rem; color: var(--ink-secondary); margin: 0 0 10px;">
+            Theo quy tắc phân định, bạn có thể tự chọn thế mạnh mà bạn cảm thấy tự tin và đúng với bản thân nhất:
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>${optionsHtml}</div>
+            <button class="btn btn-primary btn-sm" onclick="app.confirmTieChoice()">Xác nhận lựa chọn</button>
+          </div>
+        `;
+      } else {
+        tieContainer.style.display = 'none';
+      }
+    }
+
+    // Score bars (Scale out of 10)
     const breakdown = document.getElementById('score-breakdown-container');
     breakdown.innerHTML = '';
 
@@ -374,17 +427,43 @@ const app = {
 
     for (const [key, score] of Object.entries(data.scores)) {
       const bar = document.createElement('div');
-      const widthPct = Math.round((score / 15) * 100);
+      const widthPct = Math.round((score / 10) * 100);
       bar.innerHTML = `
         <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 4px;">
           <span><b>${key}</b></span>
-          <span><b>${score} / 15 điểm</b> (${widthPct}%)</span>
+          <span><b>${score} / 10 điểm</b> (${widthPct}%)</span>
         </div>
         <div style="height: 10px; background: var(--line); border-radius: 999px; overflow: hidden;">
           <div style="height: 100%; width: ${widthPct}%; background: ${colors[key]}; border-radius: 999px;"></div>
         </div>
       `;
       breakdown.appendChild(bar);
+    }
+  },
+
+  async confirmTieChoice() {
+    const selected = document.querySelector('input[name="tie-choice"]:checked')?.value;
+    if (!selected) return;
+    try {
+      const res = await fetch('/api/assessment/preference', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ primaryStrength: selected })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      this.showToast('Đã lưu thế mạnh ưu tiên của bạn!');
+      const pCat = data.primaryCategory || {};
+      const pBadge = document.getElementById('res-primary-badge');
+      pBadge.className = `badge-strength badge-${data.primaryStrength}`;
+      pBadge.innerText = `PRIMARY: ${data.primaryStrength}`;
+      document.getElementById('res-primary-name').innerText = pCat.labelVi || data.primaryStrength;
+      document.getElementById('res-primary-role').innerText = `${pCat.role || ''} · ${pCat.roleVi || ''}`;
+      document.getElementById('res-primary-desc').innerText = pCat.description || '';
+      document.getElementById('res-tie-container').style.display = 'none';
+    } catch (err) {
+      alert(err.message);
     }
   },
 
@@ -625,7 +704,7 @@ const app = {
         `;
       } else {
         strBox.innerHTML = `
-          <p style="color: var(--mute); font-size: 0.88rem;">Bạn chưa thực hiện bài Mini Test 15 câu.</p>
+          <p style="color: var(--mute); font-size: 0.88rem;">Bạn chưa thực hiện bài Mini Test 10 câu.</p>
           <button class="btn btn-primary btn-sm" style="margin-top: 8px;" onclick="app.startTest()">Làm bài test ngay 🚀</button>
         `;
       }
@@ -1240,7 +1319,7 @@ const app = {
           <td style="padding: 12px 16px;"><span class="badge-strength badge-${p.primaryStrength}">${p.primaryStrength}</span></td>
           <td style="padding: 12px 16px;"><span class="badge-strength badge-${p.secondaryStrength}" style="opacity: 0.85;">${p.secondaryStrength}</span></td>
           <td style="padding: 12px 16px; font-size: 0.82rem;">
-            ${p.scores.Communication}/${p.scores.Creativity}/${p.scores.Research}/${p.scores.Leadership}/${p.scores['Problem-solving']} (15)
+            ${p.scores.Communication}/${p.scores.Creativity}/${p.scores.Research}/${p.scores.Leadership}/${p.scores['Problem-solving']} (${p.scores.Communication + p.scores.Creativity + p.scores.Research + p.scores.Leadership + p.scores['Problem-solving']})
           </td>
           <td style="padding: 12px 16px;"><span class="badge-status status-finding">${p.teamStatus}</span></td>
           <td style="padding: 12px 16px;">${p.isDemo ? '<span class="badge-demo">Demo</span>' : '<span style="color: #166534; font-weight: 700;">Thật</span>'}</td>

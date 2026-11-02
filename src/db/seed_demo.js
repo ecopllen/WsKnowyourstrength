@@ -41,7 +41,14 @@ export function seedDemoData() {
       id, user_id, communication_score, creativity_score, research_score, leadership_score,
       problem_solving_score, total_score, primary_strength, secondary_strength, answers_json,
       is_demo, completed_at
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, 15, ?, ?, ?, 1, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?)
+  `);
+  const updateAssessment = db.prepare(`
+    UPDATE assessments SET
+      communication_score = ?, creativity_score = ?, research_score = ?, leadership_score = ?,
+      problem_solving_score = ?, total_score = ?, primary_strength = ?, secondary_strength = ?,
+      answers_json = ?, completed_at = ?
+    WHERE id = ?
   `);
 
   let usersCreated = 0;
@@ -117,23 +124,25 @@ export function seedDemoData() {
         );
       }
 
-      // 3. Check or insert assessment
+      // 3. Check or insert/update assessment
       const assessRow = findAssessmentByUserId.get(userId);
-      if (!assessRow) {
-        // Construct synthetic 15 private answers reflecting the exact scores
-        const answers = [];
-        const remainingScores = { ...p.scores };
-        for (let i = 1; i <= 15; i++) {
-          // Find strength that still needs points
-          const available = Object.keys(remainingScores).filter(k => remainingScores[k] > 0);
-          const chosenStrength = available[0] || p.primaryStrength;
-          remainingScores[chosenStrength] = Math.max(0, (remainingScores[chosenStrength] || 0) - 1);
-          answers.push({
-            questionId: i,
-            strength: chosenStrength
-          });
-        }
+      const totalScore = Object.values(p.scores).reduce((a, b) => a + b, 0);
 
+      // Construct synthetic 10 private answers reflecting the exact scores
+      const answers = [];
+      const remainingScores = { ...p.scores };
+      for (let i = 1; i <= 10; i++) {
+        // Find strength that still needs points
+        const available = Object.keys(remainingScores).filter(k => remainingScores[k] > 0);
+        const chosenStrength = available[0] || p.primaryStrength;
+        remainingScores[chosenStrength] = Math.max(0, (remainingScores[chosenStrength] || 0) - 1);
+        answers.push({
+          questionId: i,
+          strength: chosenStrength
+        });
+      }
+
+      if (!assessRow) {
         const assessId = 'ass_' + crypto.randomUUID().slice(0, 12);
         insertAssessment.run(
           assessId,
@@ -143,12 +152,28 @@ export function seedDemoData() {
           p.scores.Research || 0,
           p.scores.Leadership || 0,
           p.scores['Problem-solving'] || 0,
+          totalScore,
           p.primaryStrength,
           p.secondaryStrength,
           JSON.stringify(answers),
           now
         );
         assessmentsCreated++;
+      } else {
+        // Update existing demo assessment to reflect updated scores and 10 questions
+        updateAssessment.run(
+          p.scores.Communication || 0,
+          p.scores.Creativity || 0,
+          p.scores.Research || 0,
+          p.scores.Leadership || 0,
+          p.scores['Problem-solving'] || 0,
+          totalScore,
+          p.primaryStrength,
+          p.secondaryStrength,
+          JSON.stringify(answers),
+          now,
+          assessRow.id
+        );
       }
     }
 

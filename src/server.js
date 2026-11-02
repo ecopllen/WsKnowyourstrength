@@ -311,7 +311,7 @@ export const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, sanitized);
     }
 
-    // Assessment: Get 15 situational questions
+    // Assessment: Get 10 situational questions
     if (pathname === '/api/assessment/questions' && method === 'GET') {
       // Return questions with options (strip out the answer key strength from options for integrity!)
       const publicQuestions = QUESTIONS.map(q => ({
@@ -326,34 +326,34 @@ export const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, { questions: publicQuestions, categories: STRENGTH_CATEGORIES });
     }
 
-    // Assessment: Submit 15 answers (Requires Auth)
+    // Assessment: Submit 10 answers (Requires Auth)
     if (pathname === '/api/assessment/submit' && method === 'POST') {
       if (!requireAuth()) return;
       const body = await parseBody(req);
       const answers = body.answers; // { [questionId]: optionId } or [{ questionId, optionId }]
 
-      if (!answers || Object.keys(answers).length !== 15) {
-        return sendJson(res, 400, { error: 'Vui lòng hoàn thành đầy đủ 15 câu hỏi của bài Mini Test.' });
+      if (!answers || Object.keys(answers).length !== 10) {
+        return sendJson(res, 400, { error: 'Vui lòng hoàn thành đầy đủ 10 câu hỏi của bài Mini Test.' });
       }
 
       // Map chosen option ID back to strength key securely on the server
       const questionMap = new Map(QUESTIONS.map(q => [q.id, q]));
       const resolvedAnswers = [];
 
-      for (let i = 1; i <= 15; i++) {
+      for (let i = 1; i <= 10; i++) {
         const q = questionMap.get(i);
         const chosenOptionId = Array.isArray(answers)
           ? answers.find(a => a.questionId === i)?.optionId
           : answers[i];
 
-        const opt = q.options.find(o => o.id === chosenOptionId);
+        const opt = q.options.find(o => o.id.toLowerCase() === String(chosenOptionId).toLowerCase());
         if (!opt) {
           return sendJson(res, 400, { error: `Câu hỏi số ${i} chưa có câu trả lời hợp lệ.` });
         }
 
         resolvedAnswers.push({
           questionId: i,
-          optionId: chosenOptionId,
+          optionId: opt.id,
           strength: opt.strength
         });
       }
@@ -399,7 +399,52 @@ export const server = http.createServer(async (req, res) => {
         secondaryStrength: result.secondaryStrength,
         primaryCategory: STRENGTH_CATEGORIES[result.primaryStrength],
         secondaryCategory: STRENGTH_CATEGORIES[result.secondaryStrength],
+        clarity: result.clarity,
+        isPrimaryTied: result.isPrimaryTied,
+        isSecondaryTied: result.isSecondaryTied,
+        tiedPrimaryOptions: result.tiedPrimaryOptions,
+        tiedSecondaryOptions: result.tiedSecondaryOptions,
         completedAt: now
+      });
+    }
+
+    // Assessment: Update tie preferences ("Nếu vẫn hòa, sinh viên tự chọn")
+    if (pathname === '/api/assessment/preference' && method === 'PUT') {
+      if (!requireAuth()) return;
+      const body = await parseBody(req);
+      const { primaryStrength, secondaryStrength } = body;
+
+      const latestAssess = db.prepare('SELECT * FROM assessments WHERE user_id = ? ORDER BY completed_at DESC LIMIT 1').get(currentUser.id);
+      if (!latestAssess) {
+        return sendJson(res, 404, { error: 'Chưa tìm thấy bài kiểm tra của bạn.' });
+      }
+
+      const validStrengths = Object.keys(STRENGTH_CATEGORIES);
+      if (primaryStrength && !validStrengths.includes(primaryStrength)) {
+        return sendJson(res, 400, { error: 'Thế mạnh chính không hợp lệ.' });
+      }
+      if (secondaryStrength && !validStrengths.includes(secondaryStrength)) {
+        return sendJson(res, 400, { error: 'Thế mạnh phụ không hợp lệ.' });
+      }
+
+      const newPrimary = primaryStrength || latestAssess.primary_strength;
+      const newSecondary = secondaryStrength || latestAssess.secondary_strength;
+      const now = new Date().toISOString();
+
+      db.prepare(`
+        UPDATE assessments SET primary_strength = ?, secondary_strength = ? WHERE id = ?
+      `).run(newPrimary, newSecondary, latestAssess.id);
+
+      // Also sync desired role if matching primary
+      const roleVi = STRENGTH_CATEGORIES[newPrimary]?.role || 'Member';
+      db.prepare('UPDATE profiles SET desired_role = ?, updated_at = ? WHERE user_id = ?').run(roleVi, now, currentUser.id);
+
+      return sendJson(res, 200, {
+        success: true,
+        primaryStrength: newPrimary,
+        secondaryStrength: newSecondary,
+        primaryCategory: STRENGTH_CATEGORIES[newPrimary],
+        secondaryCategory: STRENGTH_CATEGORIES[newSecondary]
       });
     }
 
@@ -686,7 +731,8 @@ export const server = http.createServer(async (req, res) => {
       if (format === 'csv') {
         let csv = 'User ID,Full Name,Student ID,Class/Year,Email,Primary Strength,Secondary Strength,Communication,Creativity,Research,Leadership,Problem Solving,Total Score,Team Status,Is Demo\n';
         for (const p of participants) {
-          csv += `"${p.id}","${p.fullName}","${p.studentId}","${p.classYear}","${p.email}","${p.primaryStrength}","${p.secondaryStrength}",${p.scores.Communication},${p.scores.Creativity},${p.scores.Research},${p.scores.Leadership},${p.scores['Problem-solving']},15,"${p.teamStatus}",${p.isDemo ? 'YES' : 'NO'}\n`;
+          const tot = p.scores.Communication + p.scores.Creativity + p.scores.Research + p.scores.Leadership + p.scores['Problem-solving'];
+          csv += `"${p.id}","${p.fullName}","${p.studentId}","${p.classYear}","${p.email}","${p.primaryStrength}","${p.secondaryStrength}",${p.scores.Communication},${p.scores.Creativity},${p.scores.Research},${p.scores.Leadership},${p.scores['Problem-solving']},${tot},"${p.teamStatus}",${p.isDemo ? 'YES' : 'NO'}\n`;
         }
         res.writeHead(200, {
           'Content-Type': 'text/csv; charset=utf-8',

@@ -6,7 +6,7 @@
 // - Creativity: 6
 // - Problem-solving: 5
 // - Research: 3
-// Sum of scores for every student strictly equals 15!
+// Sum of scores for every student strictly equals 10!
 
 export const DEMO_PROFILES = [
   // --- LEADERSHIP PRIMARY (9 students) ---
@@ -24,7 +24,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['AI in Education', 'Smart Campus Da Nang', 'FinTech for GenZ'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang tìm teammate',
-    scores: { Leadership: 6, Communication: 3, Research: 2, Creativity: 2, 'Problem-solving': 2 },
+    scores: { Leadership: 4, Communication: 2, Research: 2, Creativity: 1, 'Problem-solving': 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -43,7 +43,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Green Campus & Recycling', 'E-commerce Platform'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { Leadership: 5, 'Problem-solving': 4, Research: 3, Communication: 2, Creativity: 1 },
+    scores: { Leadership: 4, 'Problem-solving': 3, Research: 1, Communication: 1, Creativity: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -62,7 +62,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Healthcare Logistics', 'EdTech Solutions'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đã có nhóm',
-    scores: { Leadership: 7, Creativity: 3, Communication: 2, 'Problem-solving': 2, Research: 1 },
+    scores: { Leadership: 5, Creativity: 2, Communication: 1, 'Problem-solving': 1, Research: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Creativity',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 1, showSocial: 1, showStrengths: 1 }
@@ -81,7 +81,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Student Food Delivery', 'Tourism App Da Nang'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang tìm teammate',
-    scores: { Leadership: 5, Communication: 4, Creativity: 3, 'Problem-solving': 2, Research: 1 },
+    scores: { Leadership: 4, Communication: 3, Creativity: 1, 'Problem-solving': 1, Research: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -100,7 +100,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['AI Automated Grading', 'Student Job Board'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang tìm teammate',
-    scores: { Leadership: 6, Research: 4, 'Problem-solving': 3, Communication: 1, Creativity: 1 },
+    scores: { Leadership: 5, Research: 2, 'Problem-solving': 1, Communication: 1, Creativity: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Research',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 0, showStrengths: 1 }
@@ -119,7 +119,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Mental Health App for Youth', 'Campus Life Hub'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { Leadership: 5, Communication: 4, Research: 3, Creativity: 2, 'Problem-solving': 1 },
+    scores: { Leadership: 4, Communication: 3, Research: 1, Creativity: 1, 'Problem-solving': 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -138,7 +138,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Enterprise Asset Management', 'DevOps Automation'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đã có nhóm',
-    scores: { Leadership: 6, 'Problem-solving': 4, Creativity: 2, Research: 2, Communication: 1 },
+    scores: { Leadership: 5, 'Problem-solving': 2, Creativity: 1, Research: 1, Communication: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 0, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -157,7 +157,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Student Budget Manager', 'AI Learning Assistant'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang tìm teammate',
-    scores: { Leadership: 5, Creativity: 4, Communication: 3, 'Problem-solving': 2, Research: 1 },
+    scores: { Leadership: 4, Creativity: 3, Communication: 1, 'Problem-solving': 1, Research: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Creativity',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -176,7 +176,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Smart Dormitory Management', 'Eco Travel Da Nang'],
     desiredRole: 'Team Lead',
     teamStatus: 'Đang tìm teammate',
-    scores: { Leadership: 5, Communication: 4, 'Problem-solving': 3, Research: 2, Creativity: 1 },
+    scores: { Leadership: 4, Communication: 3, 'Problem-solving': 1, Research: 1, Creativity: 1 },
     primaryStrength: 'Leadership',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -197,7 +197,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Community Engagement App', 'Student Media Portal'],
     desiredRole: 'Presenter',
     teamStatus: 'Đang tìm teammate',
-    scores: { Communication: 6, Creativity: 4, Leadership: 2, 'Problem-solving': 2, Research: 1 },
+    scores: { Communication: 5, Creativity: 2, Leadership: 1, 'Problem-solving': 1, Research: 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Creativity',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 1, showSocial: 1, showStrengths: 1 }
@@ -216,7 +216,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Green Da Nang Campaign', 'Youth Mentorship Platform'],
     desiredRole: 'Presenter',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { Communication: 5, 'Problem-solving': 4, Leadership: 3, Creativity: 2, Research: 1 },
+    scores: { Communication: 4, 'Problem-solving': 3, Leadership: 1, Creativity: 1, Research: 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -235,7 +235,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['FinTech Lending Platform', 'Local Business Marketplace'],
     desiredRole: 'Presenter',
     teamStatus: 'Đã có nhóm',
-    scores: { Communication: 6, Research: 4, Leadership: 2, 'Problem-solving': 2, Creativity: 1 },
+    scores: { Communication: 5, Research: 2, Leadership: 1, 'Problem-solving': 1, Creativity: 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Research',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -254,7 +254,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['AI for Creative Writing', 'Student Mental Health'],
     desiredRole: 'Presenter',
     teamStatus: 'Đang tìm teammate',
-    scores: { Communication: 5, Creativity: 4, Research: 3, Leadership: 2, 'Problem-solving': 1 },
+    scores: { Communication: 4, Creativity: 3, Research: 1, Leadership: 1, 'Problem-solving': 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Creativity',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -273,7 +273,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Smart Agriculture IoT', 'Student E-Wallet'],
     desiredRole: 'Presenter',
     teamStatus: 'Đang tìm teammate',
-    scores: { Communication: 7, Leadership: 3, Creativity: 2, 'Problem-solving': 2, Research: 1 },
+    scores: { Communication: 5, Leadership: 2, Creativity: 1, 'Problem-solving': 1, Research: 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Leadership',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -292,7 +292,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Green Campus Initiative', 'Food Waste Reduction'],
     desiredRole: 'Presenter',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { Communication: 5, Research: 4, Creativity: 3, 'Problem-solving': 2, Leadership: 1 },
+    scores: { Communication: 4, Research: 3, Creativity: 1, 'Problem-solving': 1, Leadership: 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Research',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -311,7 +311,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['AI Chatbot for Admission', 'Tour Guide App'],
     desiredRole: 'Presenter',
     teamStatus: 'Đang tìm teammate',
-    scores: { Communication: 5, 'Problem-solving': 4, Creativity: 3, Leadership: 2, Research: 1 },
+    scores: { Communication: 4, 'Problem-solving': 3, Creativity: 1, Leadership: 1, Research: 1 },
     primaryStrength: 'Communication',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -332,7 +332,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Creative Portfolio Platform', 'Mindfulness Mobile App'],
     desiredRole: 'Idea Generator',
     teamStatus: 'Đang tìm teammate',
-    scores: { Creativity: 6, Communication: 4, 'Problem-solving': 2, Leadership: 2, Research: 1 },
+    scores: { Creativity: 5, Communication: 2, 'Problem-solving': 1, Leadership: 1, Research: 1 },
     primaryStrength: 'Creativity',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 1, showSocial: 1, showStrengths: 1 }
@@ -351,7 +351,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Generative AI Art Studio', 'Interactive Story Game'],
     desiredRole: 'Idea Generator',
     teamStatus: 'Đang tìm teammate',
-    scores: { Creativity: 6, 'Problem-solving': 3, Research: 3, Leadership: 2, Communication: 1 },
+    scores: { Creativity: 5, 'Problem-solving': 2, Research: 1, Leadership: 1, Communication: 1 },
     primaryStrength: 'Creativity',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -370,7 +370,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Eco-living Habit Tracker', 'Virtual Art Gallery'],
     desiredRole: 'Idea Generator',
     teamStatus: 'Đã có nhóm',
-    scores: { Creativity: 5, Communication: 4, Research: 3, Leadership: 2, 'Problem-solving': 1 },
+    scores: { Creativity: 4, Communication: 3, Research: 1, Leadership: 1, 'Problem-solving': 1 },
     primaryStrength: 'Creativity',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -389,7 +389,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['AR Campus Tour', 'Gamified Learning Experience'],
     desiredRole: 'Idea Generator',
     teamStatus: 'Đang tìm teammate',
-    scores: { Creativity: 7, 'Problem-solving': 3, Leadership: 2, Communication: 2, Research: 1 },
+    scores: { Creativity: 5, 'Problem-solving': 2, Leadership: 1, Communication: 1, Research: 1 },
     primaryStrength: 'Creativity',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -408,7 +408,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Student Secondhand Market', 'Zero Food Waste Network'],
     desiredRole: 'Idea Generator',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { Creativity: 5, Leadership: 4, Communication: 3, Research: 2, 'Problem-solving': 1 },
+    scores: { Creativity: 4, Leadership: 3, Communication: 1, Research: 1, 'Problem-solving': 1 },
     primaryStrength: 'Creativity',
     secondaryStrength: 'Leadership',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -427,7 +427,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Decentralized Student Identity', 'Smart Study Spaces'],
     desiredRole: 'Idea Generator',
     teamStatus: 'Đang tìm teammate',
-    scores: { Creativity: 5, 'Problem-solving': 4, Research: 3, Communication: 2, Leadership: 1 },
+    scores: { Creativity: 4, 'Problem-solving': 3, Research: 1, Communication: 1, Leadership: 1 },
     primaryStrength: 'Creativity',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -448,7 +448,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['High Performance Backend', 'Secure Voting System'],
     desiredRole: 'Problem Solver',
     teamStatus: 'Đang tìm teammate',
-    scores: { 'Problem-solving': 6, Research: 4, Leadership: 2, Communication: 2, Creativity: 1 },
+    scores: { 'Problem-solving': 5, Research: 2, Leadership: 1, Communication: 1, Creativity: 1 },
     primaryStrength: 'Problem-solving',
     secondaryStrength: 'Research',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -467,7 +467,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Fault-tolerant Microservices', 'Automated Testing Framework'],
     desiredRole: 'Problem Solver',
     teamStatus: 'Đã có nhóm',
-    scores: { 'Problem-solving': 6, Leadership: 3, Research: 3, Creativity: 2, Communication: 1 },
+    scores: { 'Problem-solving': 5, Leadership: 2, Research: 1, Creativity: 1, Communication: 1 },
     primaryStrength: 'Problem-solving',
     secondaryStrength: 'Leadership',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -486,7 +486,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Smart Dorm Electricity Tracker', 'Student Expense Planner'],
     desiredRole: 'Problem Solver',
     teamStatus: 'Đang tìm teammate',
-    scores: { 'Problem-solving': 5, Creativity: 4, Communication: 3, Research: 2, Leadership: 1 },
+    scores: { 'Problem-solving': 4, Creativity: 3, Communication: 1, Research: 1, Leadership: 1 },
     primaryStrength: 'Problem-solving',
     secondaryStrength: 'Creativity',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -505,7 +505,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Enterprise Resource System', 'Cloud Migration'],
     desiredRole: 'Problem Solver',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { 'Problem-solving': 7, Communication: 3, Leadership: 2, Research: 2, Creativity: 1 },
+    scores: { 'Problem-solving': 5, Communication: 2, Leadership: 1, Research: 1, Creativity: 1 },
     primaryStrength: 'Problem-solving',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -524,7 +524,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['IoT Smart Parking Da Nang', 'Energy Saving Campus'],
     desiredRole: 'Problem Solver',
     teamStatus: 'Đang tìm teammate',
-    scores: { 'Problem-solving': 5, Research: 4, Leadership: 3, Creativity: 2, Communication: 1 },
+    scores: { 'Problem-solving': 4, Research: 3, Leadership: 1, Creativity: 1, Communication: 1 },
     primaryStrength: 'Problem-solving',
     secondaryStrength: 'Research',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 1, showSocial: 1, showStrengths: 1 }
@@ -545,7 +545,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['NLP for Vietnamese Law', 'Predictive Student Analytics'],
     desiredRole: 'Data Keeper',
     teamStatus: 'Đang tìm teammate',
-    scores: { Research: 7, 'Problem-solving': 3, Leadership: 2, Creativity: 2, Communication: 1 },
+    scores: { Research: 5, 'Problem-solving': 2, Leadership: 1, Creativity: 1, Communication: 1 },
     primaryStrength: 'Research',
     secondaryStrength: 'Problem-solving',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -564,7 +564,7 @@ export const DEMO_PROFILES = [
     projectInterests: ['Market Feasibility Study', 'Consumer Behaviour in FinTech'],
     desiredRole: 'Data Keeper',
     teamStatus: 'Đang cân nhắc (đang có nhóm test thử)',
-    scores: { Research: 6, Communication: 4, 'Problem-solving': 2, Leadership: 2, Creativity: 1 },
+    scores: { Research: 5, Communication: 2, 'Problem-solving': 1, Leadership: 1, Creativity: 1 },
     primaryStrength: 'Research',
     secondaryStrength: 'Communication',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 0, showPhone: 0, showSocial: 1, showStrengths: 1 }
@@ -583,14 +583,14 @@ export const DEMO_PROFILES = [
     projectInterests: ['Blockchain Security Protocols', 'Edge Computing Benchmarks'],
     desiredRole: 'Data Keeper',
     teamStatus: 'Đã có nhóm',
-    scores: { Research: 6, Leadership: 3, Creativity: 3, 'Problem-solving': 2, Communication: 1 },
+    scores: { Research: 5, Leadership: 2, Creativity: 1, 'Problem-solving': 1, Communication: 1 },
     primaryStrength: 'Research',
     secondaryStrength: 'Leadership',
     privacy: { isPublished: 1, directoryVisible: 1, showEmail: 1, showPhone: 1, showSocial: 1, showStrengths: 1 }
   }
 ];
 
-// Verification check: ensure exactly 30 demo profiles and every profile sum is 15
+// Verification check: ensure exactly 30 demo profiles and every profile sum is 10
 export function validateDemoProfiles() {
   if (DEMO_PROFILES.length !== 30) {
     throw new Error(`Demo profiles count mismatch: expected 30, got ${DEMO_PROFILES.length}`);
@@ -598,8 +598,8 @@ export function validateDemoProfiles() {
 
   for (const p of DEMO_PROFILES) {
     const sum = Object.values(p.scores).reduce((a, b) => a + b, 0);
-    if (sum !== 15) {
-      throw new Error(`Profile ${p.fullName} score sum is ${sum}, must be exactly 15!`);
+    if (sum !== 10) {
+      throw new Error(`Profile ${p.fullName} score sum is ${sum}, must be exactly 10!`);
     }
   }
 

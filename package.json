@@ -9,6 +9,9 @@
     "seed": "node src/db/seed_demo.js",
     "test": "node --test --test-concurrency=1 tests/*.test.js"
   },
+  "engines": {
+    "node": ">=22.5.0"
+  },
   "keywords": [
     "strength-finder",
     "team-generation",

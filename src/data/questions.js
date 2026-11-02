@@ -1,9 +1,10 @@
 // src/data/questions.js
-// 15 situational questions for FPT University Da Nang (FUDA) students
-// Categories: Communication, Creativity, Research, Leadership, Problem-solving
+// 10 situational questions for FPT University Da Nang (FUDA) students
+// Categories: Communication (C), Creativity (I), Research (R), Leadership (L), Problem-solving (P)
 
 export const STRENGTH_CATEGORIES = {
   Communication: {
+    code: 'C',
     name: 'Communication',
     labelVi: 'Giao tiếp & Kết nối',
     role: 'Presenter',
@@ -12,6 +13,7 @@ export const STRENGTH_CATEGORIES = {
     description: 'Truyền đạt rõ ràng, kết nối mọi người, làm cầu nối nội bộ và pitch dự án thuyết phục.'
   },
   Creativity: {
+    code: 'I',
     name: 'Creativity',
     labelVi: 'Sáng tạo & Đổi mới',
     role: 'Idea Generator',
@@ -20,6 +22,7 @@ export const STRENGTH_CATEGORIES = {
     description: 'Nghĩ ra hướng đi mới, tạo nét riêng khác biệt, phá vỡ khuôn mẫu thông thường.'
   },
   Research: {
+    code: 'R',
     name: 'Research',
     labelVi: 'Nghiên cứu & Dữ liệu',
     role: 'Data Keeper',
@@ -28,6 +31,7 @@ export const STRENGTH_CATEGORIES = {
     description: 'Tìm kiếm, đào sâu và kiểm chứng thông tin cẩn thận, lập luận dựa trên số liệu thực tế.'
   },
   Leadership: {
+    code: 'L',
     name: 'Leadership',
     labelVi: 'Lãnh đạo & Điều phối',
     role: 'Team Lead',
@@ -36,6 +40,7 @@ export const STRENGTH_CATEGORIES = {
     description: 'Phân việc đúng người đúng việc, giữ tiến độ dự án, quyết đoán trước thời hạn deadline.'
   },
   'Problem-solving': {
+    code: 'P',
     name: 'Problem-solving',
     labelVi: 'Giải quyết vấn đề',
     role: 'Problem Solver',
@@ -48,489 +53,132 @@ export const STRENGTH_CATEGORIES = {
 export const QUESTIONS = [
   {
     id: 1,
-    title: 'Khởi động đồ án mới',
-    scenario: 'Nhóm bạn vừa nhận đề tài đồ án tốt nghiệp từ giảng viên hướng dẫn. Trong buổi họp đầu tiên, phản xạ tự nhiên nhất của bạn là gì?',
+    title: 'Khởi động đồ án môn',
+    scenario: 'Nhóm vừa nhận đề đồ án môn, còn 1 tuần là nộp. Ở buổi họp đầu, bạn thường:',
     options: [
-      {
-        id: 'A',
-        text: 'Chủ động lên khung kế hoạch, phân chia mốc thời gian (milestones) và phân công đầu việc cho từng thành viên.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'B',
-        text: 'Đề xuất nhiều góc tiếp cận độc lạ, thử nghiệm ý tưởng chưa ai làm trong các khóa trước để tạo sự khác biệt.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'C',
-        text: 'Lập tức tìm kiếm các bài báo khoa học, case study quốc tế và số liệu thực tế về đề tài để nắm rõ dữ liệu nền tảng.',
-        strength: 'Research'
-      },
-      {
-        id: 'D',
-        text: 'Tạo không khí cởi mở, lắng nghe mong muốn và sở thích của từng bạn để mọi người cảm thấy thoải mái và gắn kết.',
-        strength: 'Communication'
-      },
-      {
-        id: 'E',
-        text: 'Phân tích các rủi ro kỹ thuật khả dĩ, đánh giá tính khả thi và lập phương án dự phòng nếu gặp trở ngại thực tế.',
-        strength: 'Problem-solving'
-      }
+      { id: 'a', text: 'Hỏi từng bạn đang nghĩ gì rồi tóm lại ý chung cho cả nhóm', strength: 'Communication' },
+      { id: 'b', text: 'Đưa ra 2–3 hướng làm khác với cách mọi người hay làm', strength: 'Creativity' },
+      { id: 'c', text: 'Tìm đề tương tự và tài liệu để hiểu yêu cầu trước khi bàn', strength: 'Research' },
+      { id: 'd', text: 'Chia việc, chốt ai làm gì và hạn nộp từng phần', strength: 'Leadership' },
+      { id: 'e', text: 'Tách đề thành các phần khó và chỉ ra phần dễ gặp rủi ro nhất', strength: 'Problem-solving' }
     ]
   },
   {
     id: 2,
-    title: 'Xung đột quan điểm trong nhóm',
-    scenario: 'Hai thành viên chủ chốt trong nhóm tranh cãi gay gắt về hướng phát triển sản phẩm khiến buổi họp bị đình trệ. Bạn sẽ can thiệp thế nào?',
+    title: 'Phát hiện thiếu sót trước giờ nộp',
+    scenario: 'Còn 1 ngày là nộp, nhóm phát hiện thiếu một phần quan trọng của bài. Bạn có xu hướng:',
     options: [
-      {
-        id: 'A',
-        text: 'Lắng nghe trọn vẹn cả hai bên, diễn giải lại cảm xúc và ý kiến của họ để tìm ra tiếng nói chung hòa giải.',
-        strength: 'Communication'
-      },
-      {
-        id: 'B',
-        text: 'Yêu cầu cả hai dừng tranh luận cảm tính, đưa ra bằng chứng số liệu và dữ liệu người dùng để làm cơ sở ra quyết định.',
-        strength: 'Research'
-      },
-      {
-        id: 'C',
-        text: 'Tìm ra giải pháp dung hòa hoặc một phương án thứ ba thực tế, giải quyết được khúc mắc cốt lõi của cả hai.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'D',
-        text: 'Đứng ra chốt quyết định dựa trên mục tiêu tổng thể của dự án và yêu cầu cả nhóm tuân thủ để không vỡ kế hoạch.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'E',
-        text: 'Tổ chức một phiên brainstorming nhanh để kết hợp phần hay nhất của cả hai ý tưởng thành một hướng đi hoàn toàn mới.',
-        strength: 'Creativity'
-      }
+      { id: 'a', text: 'Nghĩ hướng đi khác để bù phần thiếu mà bài vẫn gây ấn tượng', strength: 'Creativity' },
+      { id: 'b', text: 'Đọc lại đề để xác định phần nào bắt buộc, phần nào bỏ được', strength: 'Research' },
+      { id: 'c', text: 'Họp nhanh, chia lại việc theo thời gian còn lại và nhận chốt kết quả', strength: 'Leadership' },
+      { id: 'd', text: 'Xác định chỗ kẹt nhất và gỡ từng bước một', strength: 'Problem-solving' },
+      { id: 'e', text: 'Giữ tinh thần cả nhóm, hỏi từng bạn cần hỗ trợ gì', strength: 'Communication' }
     ]
   },
   {
     id: 3,
-    title: 'Khi tiến độ bị trễ hạn',
-    scenario: 'Chỉ còn 3 ngày nữa là đến đợt báo cáo tiến độ với hội đồng, nhưng một tính năng quan trọng vẫn chưa hoàn thành. Bạn làm gì?',
+    title: 'Thuyết trình nhóm',
+    scenario: 'Trong buổi thuyết trình của nhóm, phần bạn thấy thoải mái nhất là:',
     options: [
-      {
-        id: 'A',
-        text: 'Cắt giảm các phần rườm rà, tập trung tái cấu trúc giải pháp để tạo ra bản demo chạy được với tối thiểu lỗi.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'B',
-        text: 'Triệu tập nhóm khẩn cấp, rà soát lại khối lượng công việc, giao việc tập trung và theo sát tiến độ từng giờ.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'C',
-        text: 'Tìm cách trình bày và thiết kế slide thật cuốn hút, làm nổi bật những gì nhóm đã làm tốt để bù đắp điểm thiếu sót.',
-        strength: 'Communication'
-      },
-      {
-        id: 'D',
-        text: 'Tìm kiếm thư viện có sẵn, giải pháp mã nguồn mở tương đương để tích hợp nhanh vào dự án thay vì tự code từ đầu.',
-        strength: 'Research'
-      },
-      {
-        id: 'E',
-        text: 'Nghĩ ra một kịch bản giới thiệu (storytelling) sáng tạo biến hạn chế hiện tại thành một cơ hội mở rộng trong tương lai.',
-        strength: 'Creativity'
-      }
+      { id: 'a', text: 'Chuẩn bị số liệu, dẫn chứng và trả lời câu hỏi về nguồn', strength: 'Research' },
+      { id: 'b', text: 'Điều phối thứ tự nói, canh giờ và nhắc cả nhóm đi đúng kịch bản', strength: 'Leadership' },
+      { id: 'c', text: 'Xử lý câu hỏi khó hoặc tình huống bất ngờ từ giảng viên', strength: 'Problem-solving' },
+      { id: 'd', text: 'Đứng nói chính và kết nối với người nghe', strength: 'Communication' },
+      { id: 'e', text: 'Thiết kế slide và cách kể để bài nổi bật', strength: 'Creativity' }
     ]
   },
   {
     id: 4,
-    title: 'Chuẩn bị bài thuyết trình (Pitching)',
-    scenario: 'Nhóm chuẩn bị bước vào vòng phản biện trước giảng viên và ban giám khảo. Vai trò bạn muốn đảm nhận nhất là:',
+    title: 'Bất đồng ý kiến trong nhóm',
+    scenario: 'Hai bạn trong nhóm bất đồng hướng làm và tranh cãi trong group Zalo. Bạn thường:',
     options: [
-      {
-        id: 'A',
-        text: 'Đại diện nhóm đứng lên thuyết trình, tương tác với ban giám khảo và giải đáp câu hỏi một cách tự tin, trôi chảy.',
-        strength: 'Communication'
-      },
-      {
-        id: 'B',
-        text: 'Thiết kế slide và visual ấn tượng, tạo animation hoặc video minh họa để bài pitch không bị nhàm chán.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'C',
-        text: 'Chuẩn bị phần phụ lục dữ liệu, bảng so sánh đối thủ và nguồn trích dẫn học thuật để bảo vệ lập luận của nhóm.',
-        strength: 'Research'
-      },
-      {
-        id: 'D',
-        text: 'Dự đoán trước các câu hỏi hóc búa của giám khảo và chuẩn bị sẵn phương án xử lý tình huống thực tế cho nhóm.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'E',
-        text: 'Phân vai cho từng người, canh chỉnh thời gian chính xác từng phút và điều phối ai trả lời câu hỏi nào.',
-        strength: 'Leadership'
-      }
+      { id: 'a', text: 'Đề xuất cách chốt (bỏ phiếu hoặc theo tiêu chí) để nhóm đi tiếp', strength: 'Leadership' },
+      { id: 'b', text: 'Phân tích điểm hợp lý và rủi ro thực tế của mỗi hướng', strength: 'Problem-solving' },
+      { id: 'c', text: 'Nhắn riêng từng bạn để nghe lý do, giúp hai bên hiểu nhau', strength: 'Communication' },
+      { id: 'd', text: 'Đề xuất hướng thứ ba kết hợp ý của cả hai', strength: 'Creativity' },
+      { id: 'e', text: 'Tìm dữ liệu hoặc ví dụ thực tế xem hướng nào có cơ sở hơn', strength: 'Research' }
     ]
   },
   {
     id: 5,
-    title: 'Đối diện với bài toán chưa từng gặp',
-    scenario: 'Dự án gặp một yêu cầu kỹ thuật hoặc nghiệp vụ hoàn toàn mới mà không thành viên nào trong nhóm từng làm qua. Bạn sẽ làm gì đầu tiên?',
+    title: 'Tiếp cận đề tài môn học mới',
+    scenario: 'Đề tài môn học hoàn toàn mới với bạn. Việc đầu tiên bạn làm:',
     options: [
-      {
-        id: 'A',
-        text: 'Đọc kỹ tài liệu chính thống (official docs), tìm hiểu các bài viết phân tích chuyên sâu và case study tương tự.',
-        strength: 'Research'
-      },
-      {
-        id: 'B',
-        text: 'Chia nhỏ bài toán thành từng bước đơn giản, thử nghiệm giải pháp từng phần để thu hẹp phạm vi lỗi.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'C',
-        text: 'Thử nghiệm các cách làm phá cách, kết hợp công cụ hoặc công nghệ mới lạ để xem có ra kết quả bất ngờ không.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'D',
-        text: 'Hỏi han các anh chị khóa trên, giảng viên hướng dẫn hoặc cộng đồng mạng để xin lời khuyên và góc nhìn nhanh.',
-        strength: 'Communication'
-      },
-      {
-        id: 'E',
-        text: 'Xác định mức độ ảnh hưởng của vấn đề, phân công người tìm hiểu theo thời hạn cụ thể để không làm chậm cả nhóm.',
-        strength: 'Leadership'
-      }
+      { id: 'a', text: 'Làm thử một bản nhỏ, lỗi đâu sửa đó', strength: 'Problem-solving' },
+      { id: 'b', text: 'Hỏi người đã biết (bạn, anh chị, giảng viên) để hiểu nhanh', strength: 'Communication' },
+      { id: 'c', text: 'Nghĩ xem chủ đề có thể áp dụng theo cách mới nào', strength: 'Creativity' },
+      { id: 'd', text: 'Đọc nhiều nguồn rồi ghi chú tổng hợp', strength: 'Research' },
+      { id: 'e', text: 'Chia chủ đề cho từng bạn tìm hiểu rồi hẹn giờ tổng hợp', strength: 'Leadership' }
     ]
   },
   {
     id: 6,
-    title: 'Tạo động lực khi nhóm đuối sức',
-    scenario: 'Vào tuần thứ 8 của học kỳ, các thành viên đều quá tải và tinh thần làm việc xuống dốc. Bạn làm gì để vực dậy cả nhóm?',
+    title: 'Thành viên chậm tiến độ',
+    scenario: 'Một bạn im lặng nhiều tuần và chưa nộp phần việc của mình. Bạn thường:',
     options: [
-      {
-        id: 'A',
-        text: 'Rủ nhóm đi ăn uống, ngồi trò chuyện tâm sự để giải tỏa áp lực và nhắc nhở nhau về lý do cùng làm đồ án.',
-        strength: 'Communication'
-      },
-      {
-        id: 'B',
-        text: 'Nhắc lại mục tiêu chung, ghi nhận đóng góp của từng bạn và sắp xếp lại lịch làm việc khoa học, bớt áp lực hơn.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'C',
-        text: 'Tổ chức một buổi đổi gió, thử một hoạt động sáng tạo hoặc đổi concept sản phẩm để lấy lại cảm hứng.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'D',
-        text: 'Loại bỏ những tính năng thừa thãi gây mệt mỏi, tối ưu lại quy trình làm việc để giảm khối lượng gánh nặng.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'E',
-        text: 'Tìm các câu chuyện thành công của các dự án trước hoặc phản hồi tích cực của người dùng thử để truyền thêm động lực.',
-        strength: 'Research'
-      }
+      { id: 'a', text: 'Nhắn riêng để hiểu bạn đang gặp chuyện gì', strength: 'Communication' },
+      { id: 'b', text: 'Viết lại rõ yêu cầu của phần việc đó để bạn dễ bắt tay làm', strength: 'Research' },
+      { id: 'c', text: 'Hỏi xem bạn vướng ở đâu rồi cùng gỡ từng điểm kẹt', strength: 'Problem-solving' },
+      { id: 'd', text: 'Nghĩ một cách làm mới cho phần việc đó để bạn thấy hứng thú hơn', strength: 'Creativity' },
+      { id: 'e', text: 'Đặt deadline rõ ràng và nói trước cách xử lý nếu vẫn trễ', strength: 'Leadership' }
     ]
   },
   {
     id: 7,
-    title: 'Phản hồi từ người dùng / Giảng viên',
-    scenario: 'Giảng viên nhận xét giải pháp của nhóm quá chung chung và chưa có điểm nhấn thực tế. Bạn phản ứng ra sao?',
+    title: 'Lựa chọn đề tài đồ án',
+    scenario: 'Cả nhóm cần chọn đề tài đồ án. Bạn thường đóng góp bằng cách:',
     options: [
-      {
-        id: 'A',
-        text: 'Lập khảo sát người dùng thực tế tại FUDA hoặc phỏng vấn sâu 5–10 sinh viên để thu thập dữ liệu xác thực.',
-        strength: 'Research'
-      },
-      {
-        id: 'B',
-        text: 'Brainstorm một góc nhìn táo bạo hoặc tính năng độc bản mà chưa sản phẩm nào trên thị trường sở hữu.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'C',
-        text: 'Hẹn gặp trực tiếp giảng viên để trao đổi kỹ hơn, hiểu rõ kỳ vọng của thầy cô và làm rõ ý định của nhóm.',
-        strength: 'Communication'
-      },
-      {
-        id: 'D',
-        text: 'Xác định ngay các điểm yếu cụ thể bị chê và bắt tay sửa chữa điều chỉnh từng chi tiết logic của sản phẩm.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'E',
-        text: 'Tổng hợp lại toàn bộ nhận xét, cập nhật bảng phân công nhiệm vụ mới và đặt hạn chót nộp lại bản sửa.',
-        strength: 'Leadership'
-      }
+      { id: 'a', text: 'Đề xuất đề tài khác biệt mà ít nhóm nghĩ tới', strength: 'Creativity' },
+      { id: 'b', text: 'Đặt tiêu chí chọn và đưa cả nhóm tới quyết định trong buổi họp', strength: 'Leadership' },
+      { id: 'c', text: 'Giải thích lợi ích của từng đề tài để thuyết phục mọi người', strength: 'Communication' },
+      { id: 'd', text: 'So sánh theo dữ liệu: có người dùng không, có tài liệu không', strength: 'Research' },
+      { id: 'e', text: 'Chọn đề tài giải quyết vấn đề thật và làm được trong thời gian có', strength: 'Problem-solving' }
     ]
   },
   {
     id: 8,
-    title: 'Lựa chọn công cụ cho dự án',
-    scenario: 'Cần chọn một nền tảng hoặc công cụ làm việc mới cho cả nhóm (ví dụ: Notion, Figma, Trello, Git). Tiêu chí hàng đầu của bạn:',
+    title: 'Kiểm duyệt báo cáo trước khi nộp',
+    scenario: 'Khi cả nhóm sắp nộp báo cáo, điều bạn hay để ý và sửa nhất:',
     options: [
-      {
-        id: 'A',
-        text: 'Công cụ có bảng quản lý tiến độ rõ ràng, gán được deadline và đo lường được hiệu suất của từng người.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'B',
-        text: 'Công cụ giải quyết đúng điểm nghẽn hiện tại của nhóm một cách hiệu quả, không rườm rà phức tạp.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'C',
-        text: 'Công cụ có giao diện đẹp, tự do tùy biến linh hoạt và khơi gợi cảm hứng sáng tạo khi mở lên làm việc.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'D',
-        text: 'Công cụ có khả năng lưu trữ thông tin có hệ thống, tìm kiếm nhanh và hỗ trợ trích xuất dữ liệu chi tiết.',
-        strength: 'Research'
-      },
-      {
-        id: 'E',
-        text: 'Công cụ có tính năng tương tác theo thời gian thực (real-time chat, comment), giúp trao đổi mượt mà.',
-        strength: 'Communication'
-      }
+      { id: 'a', text: 'Số liệu, trích dẫn, nguồn có chính xác và nhất quán không', strength: 'Research' },
+      { id: 'b', text: 'Chỗ nào lập luận còn hở hoặc giải pháp chưa thực tế', strength: 'Problem-solving' },
+      { id: 'c', text: 'Báo cáo có điểm nhấn và khác với bài thông thường không', strength: 'Creativity' },
+      { id: 'd', text: 'Mọi phần đã có người chịu trách nhiệm và kịp tiến độ chưa', strength: 'Leadership' },
+      { id: 'e', text: 'Văn phong rõ ràng, dễ hiểu với người đọc', strength: 'Communication' }
     ]
   },
   {
     id: 9,
-    title: 'Phân bổ ngân sách giới hạn',
-    scenario: 'Workshop cấp cho nhóm bạn 1.000.000 VNĐ để triển khai một thử nghiệm giải pháp trong 1 tháng. Bạn đề xuất chi cho:',
+    title: 'Chia nhóm tự do trên lớp',
+    scenario: 'Giảng viên giao bài nhóm nhưng không chia nhóm, cả lớp còn lộn xộn. Bạn thường:',
     options: [
-      {
-        id: 'A',
-        text: 'Tổ chức mini workshop hoặc hoạt động tương tác trực tiếp để kết nối và thu hút sinh viên tham gia trải nghiệm.',
-        strength: 'Communication'
-      },
-      {
-        id: 'B',
-        text: 'Thiết kế bộ nhận diện visual bắt mắt, in ấn ấn phẩm độc lạ để tạo hiệu ứng truyền thông nổi bật.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'C',
-        text: 'Chạy thử nghiệm A/B testing nhỏ hoặc mua dữ liệu nghiên cứu để đo lường chính xác hành vi người dùng.',
-        strength: 'Research'
-      },
-      {
-        id: 'D',
-        text: 'Tập trung tối đa chi phí vào việc xây dựng mẫu thử (prototype) chạy được để kiểm tra tính khả thi thực tế.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'E',
-        text: 'Lập bảng phân bổ dòng tiền chi tiết, có dự phòng rủi ro 10% và theo dõi chi tiêu nghiêm ngặt từng khoản.',
-        strength: 'Leadership'
-      }
+      { id: 'a', text: 'Đứng ra rủ vài bạn lập nhóm và đề xuất cách làm', strength: 'Leadership' },
+      { id: 'b', text: 'Đi hỏi các bạn xung quanh để tìm người cùng hướng', strength: 'Communication' },
+      { id: 'c', text: 'Đọc kỹ yêu cầu để biết giảng viên mong đợi gì', strength: 'Research' },
+      { id: 'd', text: 'Nghĩ trước chỗ dễ gặp vấn đề và đề xuất cách tránh', strength: 'Problem-solving' },
+      { id: 'e', text: 'Nghĩ một cách tổ chức mới lạ để việc lập nhóm bớt nhàm', strength: 'Creativity' }
     ]
   },
   {
     id: 10,
-    title: 'Khi thành viên biến mất hoặc chậm trễ',
-    scenario: 'Một thành viên trong nhóm không trả lời tin nhắn suốt 2 ngày ngay trước hạn nộp bản thảo. Bạn xử lý thế nào?',
+    title: 'Vai trò khi người khác cần trợ giúp',
+    scenario: 'Bạn bè hay nhờ bạn việc gì nhất trong nhóm?',
     options: [
-      {
-        id: 'A',
-        text: 'Gọi điện trực tiếp hoặc gặp riêng hỏi thăm lý do, xem bạn ấy có gặp vấn đề cá nhân gì để thấu hiểu và hỗ trợ.',
-        strength: 'Communication'
-      },
-      {
-        id: 'B',
-        text: 'Chủ động phân chia lại phần việc của bạn đó cho những người khác hoặc tự mình gánh một phần để bảo vệ nhóm.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'C',
-        text: 'Tìm cách thu nhỏ phạm vi phần việc đó lại hoặc tìm giải pháp thay thế đơn giản hơn để kịp nộp.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'D',
-        text: 'Kiểm tra lại tài liệu và lịch sử commit/note xem bạn đó đã làm đến đâu để tiếp nối công việc không bị trùng lặp.',
-        strength: 'Research'
-      },
-      {
-        id: 'E',
-        text: 'Nghĩ ra một cách giải quyết linh hoạt, ví dụ xin gia hạn khéo léo hoặc biến đổi bố cục bài nộp để che khuyết điểm.',
-        strength: 'Creativity'
-      }
-    ]
-  },
-  {
-    id: 11,
-    title: 'Đánh giá thành công của một dự án',
-    scenario: 'Sau khi hoàn thành đồ án, điều gì khiến bạn cảm thấy tự hào và hài lòng nhất?',
-    options: [
-      {
-        id: 'A',
-        text: 'Sản phẩm giải quyết được vấn đề thực tế đau đầu và hoạt động trơn tru, không có lỗi nghiêm trọng.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'B',
-        text: 'Cả nhóm làm việc nhịp nhàng, đúng tiến độ từ đầu đến cuối và ai cũng trưởng thành hơn sau dự án.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'C',
-        text: 'Dự án nhận được sự tán thưởng của khán giả, kết nối được nhiều mối quan hệ mới và truyền cảm hứng cho người nghe.',
-        strength: 'Communication'
-      },
-      {
-        id: 'D',
-        text: 'Nhóm tạo ra một ý tưởng tiên phong, không ai nghĩ tới, mang dấu ấn cá nhân đậm nét.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'E',
-        text: 'Bài báo cáo có cơ sở dữ liệu vững chắc, số liệu thuyết phục và được các thầy cô đánh giá cao về tính học thuật.',
-        strength: 'Research'
-      }
-    ]
-  },
-  {
-    id: 12,
-    title: 'Cách bạn học hỏi kỹ năng mới',
-    scenario: 'Để phục vụ đồ án, bạn cần học một công nghệ hoặc kiến thức hoàn toàn mới trong vòng 1 tuần. Cách tiếp cận của bạn:',
-    options: [
-      {
-        id: 'A',
-        text: 'Đọc kỹ tài liệu từ nguồn gốc, tổng hợp ghi chú có cấu trúc và so sánh các bài viết đánh giá đa chiều.',
-        strength: 'Research'
-      },
-      {
-        id: 'B',
-        text: 'Bắt tay làm thử một mini project ngay, gặp lỗi ở đâu thì debug và tra cứu giải pháp xử lý ở đó.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'C',
-        text: 'Tìm các video chia sẻ sinh động, trao đổi với người có kinh nghiệm để được hướng dẫn nhanh.',
-        strength: 'Communication'
-      },
-      {
-        id: 'D',
-        text: 'Lập thời gian biểu học tập chi tiết, đặt mục tiêu cụ thể mỗi ngày và tự kiểm tra tiến độ học.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'E',
-        text: 'Thử nghiệm các cách ứng dụng công nghệ đó vào một ý tưởng thú vị khác để tạo hứng thú học tập.',
-        strength: 'Creativity'
-      }
-    ]
-  },
-  {
-    id: 13,
-    title: 'Xây dựng thông điệp cho sản phẩm',
-    scenario: 'Nhóm cần viết một câu slogan và tóm tắt dự án trong 1 câu (one-liner) cho đồ án tốt nghiệp. Bạn hướng tới:',
-    options: [
-      {
-        id: 'A',
-        text: 'Một câu chơi chữ hoặc hình ảnh độc đáo, gây tò mò và dễ nhớ ngay từ lần đầu nghe.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'B',
-        text: 'Một câu nói truyền tải chân thực giá trị, chạm đúng cảm xúc và nhu cầu của sinh viên.',
-        strength: 'Communication'
-      },
-      {
-        id: 'C',
-        text: 'Một câu nêu bật giải pháp thực tế giải quyết dứt điểm vấn đề gì cho người dùng.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'D',
-        text: 'Một câu cô đọng có dẫn chứng số liệu chứng minh quy mô và tác động của thị trường.',
-        strength: 'Research'
-      },
-      {
-        id: 'E',
-        text: 'Một câu tuyên ngôn định vị rõ ràng tầm nhìn và cam kết của đội ngũ phát triển.',
-        strength: 'Leadership'
-      }
-    ]
-  },
-  {
-    id: 14,
-    title: 'Khi kế hoạch ban đầu không còn phù hợp',
-    scenario: 'Giữa chừng dự án, nhóm phát hiện giả định ban đầu bị sai do môi trường thay đổi. Hành động tiếp theo của bạn:',
-    options: [
-      {
-        id: 'A',
-        text: 'Bình tĩnh đánh giá tình hình, tái định hình giải pháp nhanh để thích ứng với điều kiện mới mà không hoảng loạn.',
-        strength: 'Problem-solving'
-      },
-      {
-        id: 'B',
-        text: 'Tổ chức phiên xoay trục (pivot) ý tưởng, tận dụng dữ liệu cũ để tạo ra một hướng phát triển sáng tạo hơn.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'C',
-        text: 'Nhanh chóng điều chỉnh lộ trình, phân bổ lại nguồn lực và trấn an tinh thần của các thành viên.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'D',
-        text: 'Thu thập thêm dữ liệu mới để hiểu tại sao giả định cũ thất bại, tránh lặp lại sai lầm trong bước tiếp theo.',
-        strength: 'Research'
-      },
-      {
-        id: 'E',
-        text: 'Chủ động trao đổi thẳng thắn với mentor và giảng viên hướng dẫn để thông báo tình hình và xin định hướng.',
-        strength: 'Communication'
-      }
-    ]
-  },
-  {
-    id: 15,
-    title: 'Vai trò tự nhiên trong một nhóm mới',
-    scenario: 'Khi bước vào một nhóm gồm toàn những người bạn chưa từng quen biết, bạn thường thấy mình tự nhiên trở thành:',
-    options: [
-      {
-        id: 'A',
-        text: 'Người kết nối, bắt chuyện làm quen, giúp mọi người nhanh chóng phá vỡ khoảng cách ngại ngùng ban đầu.',
-        strength: 'Communication'
-      },
-      {
-        id: 'B',
-        text: 'Người quan sát, tìm hiểu kỹ lưỡng thông tin yêu cầu của đề bài để cả nhóm không bị đi sai hướng.',
-        strength: 'Research'
-      },
-      {
-        id: 'C',
-        text: 'Người khơi gợi những ý tưởng thú vị và tạo bầu không khí hào hứng cho các buổi thảo luận.',
-        strength: 'Creativity'
-      },
-      {
-        id: 'D',
-        text: 'Người đứng ra mở lời điều phối, đề xuất cách chia sẻ công việc để nhóm nhanh chóng bắt tay vào làm.',
-        strength: 'Leadership'
-      },
-      {
-        id: 'E',
-        text: 'Người lắng nghe các khó khăn hiện tại và nhanh chóng đề xuất những phương án tháo gỡ cụ thể.',
-        strength: 'Problem-solving'
-      }
+      { id: 'a', text: 'Gỡ rối khi sản phẩm hoặc kế hoạch gặp sự cố', strength: 'Problem-solving' },
+      { id: 'b', text: 'Góp ý ý tưởng, đặt tên, thiết kế', strength: 'Creativity' },
+      { id: 'c', text: 'Phân việc và tổ chức nhóm', strength: 'Leadership' },
+      { id: 'd', text: 'Nói giúp, viết giúp, giới thiệu giúp', strength: 'Communication' },
+      { id: 'e', text: 'Tìm giúp thông tin và tài liệu', strength: 'Research' }
     ]
   }
 ];
 
 // Helper to compute scores and determine primary & secondary strengths
+// Algorithm rules:
+// - Count selections per strength type (0-10). Highest is Primary, second highest is Secondary.
+// - Tie-breaking: type chosen in Question 10 wins (the question about how others perceive you). If still tied, student can choose or use deterministic fallback.
+// - Strength clarity: highest score >= 5 => "Thế mạnh rõ nét"; highest score <= 3 => "Đa năng, chưa nghiêng hẳn về một kiểu".
 export function calculateStrengthResult(answers) {
-  // answers: Array of { questionId, strength } or { [questionId]: strength }
   const scores = {
     Communication: 0,
     Creativity: 0,
@@ -539,27 +187,124 @@ export function calculateStrengthResult(answers) {
     'Problem-solving': 0
   };
 
-  const answerList = Array.isArray(answers) ? answers : Object.values(answers);
+  let q10Strength = null;
+
+  const answerList = Array.isArray(answers)
+    ? answers
+    : Object.entries(answers).map(([qId, val]) => {
+        return typeof val === 'object' && val !== null
+          ? { questionId: Number(qId), ...val }
+          : { questionId: Number(qId), optionId: val };
+      });
 
   for (const item of answerList) {
-    const strength = typeof item === 'string' ? item : item?.strength;
+    const qId = Number(item.questionId);
+    let strength = item.strength;
+
+    if (!strength && item.optionId) {
+      const q = QUESTIONS.find(x => x.id === qId);
+      if (q) {
+        const opt = q.options.find(o => o.id.toLowerCase() === String(item.optionId).toLowerCase());
+        if (opt) strength = opt.strength;
+      }
+    }
+
     if (strength && scores[strength] !== undefined) {
       scores[strength] += 1;
+      if (qId === 10) {
+        q10Strength = strength;
+      }
     }
   }
 
   const total = Object.values(scores).reduce((a, b) => a + b, 0);
 
-  // Sort descending by score
-  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  // Group strengths by score descending
+  const scoreEntries = Object.entries(scores);
+  scoreEntries.sort((a, b) => b[1] - a[1]);
 
-  const primaryStrength = sorted[0][0];
-  const secondaryStrength = sorted[1][0];
+  const maxScore = scoreEntries[0][1];
+  const topStrengths = scoreEntries.filter(e => e[1] === maxScore).map(e => e[0]);
+
+  let primaryStrength = null;
+  let secondaryStrength = null;
+  let isPrimaryTied = false;
+  let isSecondaryTied = false;
+  let tiedPrimaryOptions = [];
+  let tiedSecondaryOptions = [];
+
+  // Tie-breaking:
+  // "Hòa điểm: kiểu được chọn ở câu 10 thắng (câu hỏi về cách người khác nhìn bạn). Nếu vẫn hòa, sinh viên tự chọn."
+  if (topStrengths.length === 1) {
+    primaryStrength = topStrengths[0];
+
+    const remaining = scoreEntries.filter(e => e[0] !== primaryStrength);
+    const secondMaxScore = remaining[0][1];
+    const secondTopStrengths = remaining.filter(e => e[1] === secondMaxScore).map(e => e[0]);
+
+    if (secondTopStrengths.length === 1) {
+      secondaryStrength = secondTopStrengths[0];
+    } else {
+      // Tie for secondary
+      if (q10Strength && secondTopStrengths.includes(q10Strength)) {
+        secondaryStrength = q10Strength;
+      } else {
+        isSecondaryTied = true;
+        tiedSecondaryOptions = secondTopStrengths;
+        secondaryStrength = secondTopStrengths[0];
+      }
+    }
+  } else {
+    // Tie for primary
+    if (q10Strength && topStrengths.includes(q10Strength)) {
+      primaryStrength = q10Strength;
+      const remainingTop = topStrengths.filter(s => s !== primaryStrength);
+      if (remainingTop.length === 1) {
+        secondaryStrength = remainingTop[0];
+      } else {
+        isSecondaryTied = true;
+        tiedSecondaryOptions = remainingTop;
+        secondaryStrength = remainingTop[0];
+      }
+    } else {
+      isPrimaryTied = true;
+      tiedPrimaryOptions = topStrengths;
+      primaryStrength = topStrengths[0];
+      secondaryStrength = topStrengths[1];
+    }
+  }
+
+  // Clarity interpretation:
+  // "Kiểu cao nhất từ 5 lần trở lên: thế mạnh rõ nét. Cao nhất chỉ từ 3 lần trở xuống: đa năng, chưa nghiêng hẳn về một kiểu."
+  let clarityLabel = 'Thế mạnh định hình vừa phải';
+  let clarityLevel = 'moderate';
+  let clarityDesc = 'Các thế mạnh của bạn phân bổ tương đối đồng đều trong các tình huống làm việc nhóm.';
+
+  if (maxScore >= 5) {
+    clarityLabel = 'Thế mạnh rõ nét';
+    clarityLevel = 'distinct';
+    clarityDesc = 'Bạn có xu hướng hành vi và phong cách làm việc rất rõ nét, đóng vai trò mũi nhọn nổi bật trong nhóm.';
+  } else if (maxScore <= 3) {
+    clarityLabel = 'Đa năng, chưa nghiêng hẳn về một kiểu';
+    clarityLevel = 'versatile';
+    clarityDesc = 'Bạn là mẫu thành viên đa năng (all-rounder), linh hoạt thích ứng với nhiều vai trò khác nhau tùy theo hoàn cảnh dự án.';
+  }
 
   return {
     scores,
     total,
     primaryStrength,
-    secondaryStrength
+    secondaryStrength,
+    isPrimaryTied,
+    isSecondaryTied,
+    tiedPrimaryOptions,
+    tiedSecondaryOptions,
+    q10Strength,
+    clarity: {
+      label: clarityLabel,
+      level: clarityLevel,
+      description: clarityDesc,
+      maxScore
+    }
   };
 }

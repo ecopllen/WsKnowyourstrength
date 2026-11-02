@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=2.2">
+  <link rel="stylesheet" href="/css/style.css?v=2.4">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
       <nav>
         <ul class="nav-menu">
           <li><a class="nav-link active" data-view="home" onclick="app.navigate('home')">Trang chủ</a></li>
-          <li><a class="nav-link" data-view="test" onclick="app.navigate('test')">Mini Test 15 câu</a></li>
+          <li><a class="nav-link" data-view="test" onclick="app.navigate('test')">Mini Test 10 câu</a></li>
           <li><a class="nav-link" data-view="directory" onclick="app.navigate('directory')">Tìm Teammate</a></li>
           <li><a class="nav-link" data-view="community" onclick="app.navigate('community')">Cộng đồng</a></li>
           <li><a class="nav-link" data-view="profile" id="nav-profile-link" onclick="app.navigate('profile')">Hồ sơ của tôi</a></li>
@@ -69,7 +69,7 @@
         </div>
 
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <button class="btn btn-primary btn-lg" onclick="app.startTest()">Bắt đầu bài Mini Test 15 câu 🚀</button>
+          <button class="btn btn-primary btn-lg" onclick="app.startTest()">Bắt đầu bài Mini Test 10 câu 🚀</button>
           <button class="btn btn-outline btn-lg" onclick="app.navigate('directory')">Khám phá Danh bạ Teammate 👥</button>
         </div>
 
@@ -139,7 +139,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 20px;">
           <div style="border-left: 3px solid var(--fpt); padding-left: 12px;">
             <b style="color: var(--fpt);">① Mini Test</b>
-            <p style="font-size: 0.88rem; color: var(--mute);">15 câu tình huống thực tế xác định Strength chính và phụ.</p>
+            <p style="font-size: 0.88rem; color: var(--mute);">10 câu tình huống thực tế xác định Strength chính và phụ.</p>
           </div>
           <div style="border-left: 3px solid #d99a00; padding-left: 12px;">
             <b style="color: #d99a00;">② Warm-up</b>
@@ -166,29 +166,39 @@
       <div class="test-container">
         <!-- Not Started Screen -->
         <div id="test-intro-card" class="question-card" style="text-align: center;">
-          <span class="badge-strength badge-Communication" style="margin-bottom: 12px;">Bài Đánh Giá Năng Lực</span>
-          <h2>Mini Test 15 Câu Tình Huống Sinh Viên FUDA</h2>
-          <p style="color: var(--mute); max-width: 600px; margin: 12px auto 24px;">
-            15 tình huống thực tế thường gặp khi làm việc nhóm và đồ án tại Đại học FPT Đà Nẵng. Mỗi câu hỏi gồm 5 phản xạ tự nhiên tương ứng với 5 kiểu điểm mạnh. Hãy chọn phương án phản ánh đúng nhất cách hành xử thường ngày của bạn!
+          <span class="badge-strength badge-Communication" style="margin-bottom: 12px;">Bài Đánh Giá Năng Lực Tình Huống</span>
+          <h2>Mini Test 10 Câu Tình Huống Sinh Viên FUDA</h2>
+          <p style="color: var(--mute); max-width: 680px; margin: 12px auto 20px; font-size: 0.95rem; line-height: 1.6;">
+            10 câu tình huống lấy từ cuộc sống sinh viên (đồ án môn, group Zalo, deadline, thuyết trình). Câu hỏi hỏi <b>bạn thường làm gì</b>, không hỏi bạn là người thế nào, vì hành vi cụ thể cho kết quả sát thực tế hơn.
           </p>
-          <div class="alert alert-info" style="text-align: left; max-width: 600px; margin: 0 auto 24px;">
-            <b>Quy tắc tính điểm:</b> Mỗi câu chọn 1 đáp án mang lại 1 điểm cho thế mạnh tương ứng. Tổng 5 thế mạnh luôn bằng đúng 15 điểm. Kết quả sẽ tự động chỉ ra <b>Strength Chính</b> và <b>Strength Phụ</b> của bạn.
+
+          <div style="max-width: 680px; margin: 0 auto 20px; text-align: left; display: flex; flex-direction: column; gap: 12px;">
+            <div class="alert alert-warning" style="margin: 0; font-size: 0.92rem;">
+              👉 <b>Hướng dẫn cho sinh viên:</b> Mỗi câu chọn 1 đáp án giống cách bạn thường làm nhất, không phải cách bạn nghĩ là đúng.
+            </div>
+
+            <div class="alert alert-info" style="margin: 0; font-size: 0.88rem; line-height: 1.6;">
+              📊 <b>Cách tính điểm:</b> Đếm số lần chọn từng kiểu (0–10). Kiểu nhiều nhất là <b>Strength chính</b>, nhiều thứ hai là <b>Strength phụ</b>.<br>
+              ⚖️ <b>Hòa điểm:</b> Kiểu được chọn ở <b>Câu 10</b> thắng (câu hỏi về cách người khác nhìn bạn). Nếu vẫn hòa, sinh viên được tự chọn.<br>
+              🎯 <b>Độ rõ nét:</b> Kiểu cao nhất từ 5 lần trở lên: <b>Thế mạnh rõ nét</b>. Cao nhất chỉ từ 3 lần trở xuống: <b>Đa năng, linh hoạt</b>.
+            </div>
           </div>
-          <button class="btn btn-primary btn-lg" onclick="app.beginQuestionnaire()">Bắt đầu làm bài (15 câu) ⏱️</button>
+
+          <button class="btn btn-primary btn-lg" onclick="app.beginQuestionnaire()">Bắt đầu làm bài (10 câu) ⏱️</button>
         </div>
 
         <!-- Ongoing Questionnaire -->
         <div id="test-active-card" style="display: none;">
           <div class="progress-header">
-            <span style="font-weight: 700; color: var(--fpt);" id="question-counter">Câu hỏi 1 / 15</span>
+            <span style="font-weight: 700; color: var(--fpt);" id="question-counter">Câu hỏi 1 / 10</span>
             <span style="font-size: 0.85rem; color: var(--mute);" id="question-progress-percent">0%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill" style="width: 6.66%;"></div>
+            <div class="progress-fill" id="progress-fill" style="width: 10%;"></div>
           </div>
 
           <div class="question-card">
-            <div class="question-meta" id="q-title">Khởi động đồ án mới</div>
+            <div class="question-meta" id="q-title">Tình huống 1: Khởi động đồ án môn</div>
             <h2 id="q-scenario">Tình huống đang tải...</h2>
             <div class="options-list" id="q-options-container">
               <!-- Rendered via JS -->
@@ -206,9 +216,18 @@
           <div class="hero-box" style="text-align: center;">
             <div class="badge-strength badge-Communication" style="margin-bottom: 12px;">Hoàn thành đánh giá</div>
             <h1>Kết Quả Strength Card Của Bạn</h1>
-            <p class="hero-lead" style="margin: 0 auto 28px;">
-              Chúc mừng bạn đã hoàn thành 15 câu trắc nghiệm tình huống. Dưới đây là phân tích chi tiết thế mạnh của bạn:
+            <p class="hero-lead" style="margin: 0 auto 16px;">
+              Chúc mừng bạn đã hoàn thành 10 câu trắc nghiệm tình huống. Dưới đây là phân tích chi tiết thế mạnh của bạn:
             </p>
+
+            <div id="res-clarity-badge-box" style="margin-bottom: 24px;">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Optional Tie Resolution Selection Box -->
+            <div id="res-tie-container" style="display: none; background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius); padding: 18px; margin: 0 auto 24px; max-width: 680px; text-align: left;">
+              <!-- Rendered via JS when tied -->
+            </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; text-align: left; margin-bottom: 32px;">
               <!-- Primary Card -->
@@ -230,7 +249,7 @@
 
             <!-- Score breakdown bars -->
             <div style="background: var(--surface-alt); border-radius: var(--radius); padding: 24px; margin-bottom: 32px; text-align: left;">
-              <h3 style="margin-bottom: 16px;">Phổ Điểm 5 Thế Mạnh (Tổng = 15 điểm)</h3>
+              <h3 style="margin-bottom: 16px;">Phổ Điểm 5 Thế Mạnh (Tổng = 10 điểm)</h3>
               <div id="score-breakdown-container" style="display: flex; flex-direction: column; gap: 12px;">
                 <!-- Rendered via JS -->
               </div>
@@ -286,6 +305,7 @@
             <option value="K17">K17</option>
             <option value="K18">K18</option>
             <option value="K19">K19</option>
+            <option value="K20">K20</option>
           </select>
         </div>
 
@@ -343,10 +363,11 @@
                 <div class="form-group">
                   <label>Khóa / Năm học</label>
                   <select id="prof-classYear" class="form-select">
+                    <option value="K16">K16</option>
                     <option value="K17">K17</option>
                     <option value="K18">K18</option>
-                    <option value="K16">K16</option>
                     <option value="K19">K19</option>
+                    <option value="K20">K20</option>
                   </select>
                 </div>
               </div>
@@ -438,7 +459,7 @@
                 </div>
 
                 <div class="alert alert-info" style="font-size: 0.82rem; margin-bottom: 14px;">
-                  🛡️ <b>Cam kết bảo mật:</b> Câu trả lời chi tiết cho 15 câu hỏi của bạn luôn được mã hóa và không bao giờ chia sẻ cho bất kỳ ai khác.
+                  🛡️ <b>Cam kết bảo mật:</b> Câu trả lời chi tiết cho 10 câu hỏi của bạn luôn được mã hóa và không bao giờ chia sẻ cho bất kỳ ai khác.
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Cập Nhật Quyền Riêng Tư 🔒</button>
@@ -788,6 +809,6 @@
   <div class="toast-container" id="toast-container"></div>
 
   <!-- Application Script -->
-  <script src="/js/app.js?v=2.2"></script>
+  <script src="/js/app.js?v=2.4"></script>
 </body>
 </html>
